@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Abin Sam-SWE 642</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <link rel="stylesheet" href="css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="scripts/jquery/jquery.js"></script>
+<script type="text/javascript" src="scripts/jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="scripts/samStudentSurvey.js" ></script>
+
+<script type="text/javascript">
+			$(document).ready(function() {
+				nameSaveCookie(true);
+			});
+		</script> 
+		   <script>
+			$(function() {
+		    	$("#main-tabbed-panel-div").tabs();
+		    	
+		    	$("#ui-id-3").click(function () {
+		    		$("#main-tabbed-panel-div").tabs({ active: -1});
+		    	})
+		    });
+			
+	</script>
+ 
+</head>
+<body>
+<div id="main-tabbed-panel-div">
+    <ul> 
+    <li><a href="index.html">Assignment No:1</a></li>
+    <li><a href="departmentInfo.html">Assignment No:2</a></li>
+    <li><a href="#studentSurvey">Assignment No:3</a></li>
+    </ul> 
+<div id="studentSurvey"  class="sub_body" onload="return nameSaveCookie()">
+  	 <h1>DEPARTMENT OF COMPUTER SCIENCE</h1>
+		<div id="greetings" class="greetingMessage" hidden="true"></div>
+		<div id="welcomeMessage" class="welcomeMessage" >Please enter your name or click OK. Click <a href="javascript: changeName();" style="color: #00000;">here</a> to enter new name.</div>
+ 
+<h2>Survey Form</h2>
+<div id="errorMessage" hidden="true">Please make valid entries for inputs with error</div>
+<form id="surveyForm" method="post" action="" autocomplete="on" >
+ <table>
+ <tbody>
+    <tr>
+        <td><label>Username</label></td>
+     </tr>
+    <tr>
+       <td> <input type="text" name="userName" id="userName" maxlength="40" 
+          required="required"    placeholder="eg.abinsam" autofocus="autofocus"></td>
+   
+    </tr>
+    <tr>
+	<td><div id="userNameErrorDiv" class="error" ></div></td>
+    <tr>
+		<td><label>Street Address</label></td>
+
+	</tr>
+	<tr>
+	   <td colspan="3"><input type="text" style="width:100%;" name="streetAddress" id="streetAddress"></td>
+	</tr>
+	<tr>
+	<td colspan="2"><div id="streetAddrErrorDiv" class="error"></div></td>
+	</tr>
+    <tr>
+        <td><label>ZipCode</label></td>
+    	<td><label>City</label></td>
+		<td><label>State</label></td>
+	</tr>   
+    <tr>
+    	<td><input type="text" name="zip" id="zip" placeholder="#####"
+    	 onkeyup="populateCityAndState()" onblur="populateCityAndState()"></td>
+        <td><div id="city" ></div></td>
+		<td><div id="state" ></div></td>
+	
+    </tr>
+    <tr><td><div id="zipCodeErrorDiv" hidden="true"></div></td></tr>
+   <tr>
+		<td><label>Telephone Number</label></td>
+		<td><label>Email Address</label></td>
+	</tr> 
+   <tr>
+        <td><input type="text" name="telephoneNo" required="required"  id="telephoneNo" maxlength="10" placeholder="##########" ></td>
+		<td colspan="2"><input type="email" name="emailId" id="emailId" required="required"  placeholder="name@domain.com"  style="width:100%;"></td>
+    </tr>
+   <tr>
+		<td><label>URL</label></td>
+		<td><label>Date of Survey</label></td>
+	</tr> 
+   <tr>
+        <td><input type="url" name="url" id="url" required="required"  placeholder="http://www.domain.com" ></td>
+		<td><input type="date" name="dateOfSurvey" id=""dateOfSurvey" placeholder="mm/dd/yyyy"></td>
+    </tr>
+    </table>
+    <table>
+   <tr></tr>
+    <tr>
+	  <td>
+	 <label>What you like most about the campus :</label>
+	 </td>
+	</tr>
+     <tr>
+		<td>
+		<div id="likeMostCheckBox">
+		 <input type="checkbox" class="likeMostCheckboxClass" value="students" name="likeMost" >Students
+		 <input type="checkbox" class="likeMostCheckboxClass" value="location" name="likeMost" >Location
+		 <input type="checkbox" class="likeMostCheckboxClass" value="campus" name="likeMost" >Campus
+		 <input type="checkbox" class="likeMostCheckboxClass" value="atmoshpere" name="likeMost" >Atmosphere
+		 <input type="checkbox" class="likeMostCheckboxClass" value="dormRooms" name="likeMost">Dorm Rooms
+		 <input type="checkbox" class="likeMostCheckboxClass" value="sports" name="likeMost" >Sports
+		 </div>
+		</td>
+	</tr>
+   <tr>	<td colspan="5"><div id="likeMostCheckboxError" class="error"></div></td></tr>
+						
+     <tr>
+		<td>
+		<label>How did you become interested in the University?</label>
+		</td>
+	</tr>
+	 <tr>
+		<td>
+		<div id="interestRadio">
+		<input type="radio" class="interestRadioClass" id="interest" value="friends" name="interest" >Friends
+		<input type="radio" class="interestRadioClass" id="interest" value="television" name="interest" >Television
+		<input type="radio" class="interestRadioClass" id="interest" value="internet" name="interest" >Internet
+	    <input type="radio" class="interestRadioClass" id="interest" value="other" name="interest" >Other
+		</div>
+	    </td>
+	</tr>
+	<tr><td colspan="5"><div id="radioErrorDiv" class="error"></div></td></tr>
+	<tr>
+	<td> <label>Additional Comments</label></td>
+	</tr>
+	<tr>
+	<td>
+	<textarea rows="5" cols="50" placeholder="Enter your comments here "></textarea>
+	</td>
+	</tr>
+	</table>
+	<table>
+    <tr>
+	  <td><label>Graduation Month</label></td>
+	  <td><label>Graduation Year</label></td>
+	</tr>
+	<tr>
+	 <td><input type="text" id="graduationMonth" name="graduationMonth" placeholder="Select a month" list="months" />
+	    <datalist id="months">
+			<option value="January"><option value="February">
+			<option value="March"><option value="April">
+			<option value="May"><option value="June">
+			<option value="July"><option value="August">
+			<option value="September"><option value="October">
+			<option value="November"><option value="December">
+			</datalist>
+	</td>
+	<td>
+		<input type="text" id="graduationYear" name="graduationYear" placeholder="yyyy"/>
+	</td>
+	</tr>
+
+     <tr>
+		<td colspan="5"><label>How much would you recommend this school to other prospective students?</label></td>
+	</tr>
+	<tr><td colspan="5">
+	 <select name="recommendOthers">
+		<option selected="selected">Select one</option>
+		<option>Very likely</option>
+		<option>Likely</option>
+		<option>Unlikely</option>
+		</select>
+	</td>
+	</tr>
+	<tr>
+	  <td> <label>Data
+	  <div id="dataError" hidden="true" style="color: red"></div></label></td>
+	  
+	</tr>
+	<tr>
+	  <td colspan="1"><input type="text" id="dataField" name="dataField" onblur="calculateData()" style="width:100%;" /></td>
+	<td><label>Average:</label>
+	<input type="text" id="avgData" name="avgData" readonly="readonly" style="width: 50px;"/></td>
+	<td><label>Maximum:</label>
+	<input type="text" id="maxData" name="maxData" readonly="readonly" style="width: 50px;" /></td>
+	
+	</tr>
+    <tr>
+	<td colspan="5">
+		<input type="submit" id="submitBtn" name="submitBtn" value="SUBMIT" onclick="return  submitFunction()">
+		<input type="reset" id="resetBtn" name="resetBtn" value="RESET" onclick="resetPage()">
+	</td>
+	</tr>
+ </tbody>
+ 
+ </table>
+  </form>
+    <div id="bottom1" style="top: 555px; right: 90px; position: fixed;">
+		<a href="http://www.gmu.edu/" target="_blank" >
+					<img src="./images/GMURGB.png" alt="GMU logo" style="height: 100px; width: 100px; float: right;" 
+					title="Please visit :http://www.gmu.edu for more information.">
+				</a>
+			</div>
+		</div>
+</div>
+</body>
+</html>

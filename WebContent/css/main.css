@@ -1,0 +1,88 @@
+@CHARSET "ISO-8859-1";
+/** CSS Styles **/
+ul#navigation {list-style:none;position:relative; z-index:2;top:1px;display:table;border-left:1px solid #ffff00;}
+ul#navigation li {float:left;}
+ul#navigation li a {background:#004000;color:#ffffff;display:block;padding:6px 15px;text-decoration:none;border-right:1px solid #808080;border-top:1px solid #000000;border-right:1px solid #000000;margin:0;}
+ul#navigation li a.selected {border-bottom:1px solid #fff;color:#000000;background:#fff;}
+label{
+	font-weight: bold;
+}
+h1 {
+	text-shadow: -4px 4px 6px #ffff00;
+	font-size: 35px;
+	color: blue;
+	text-align: center;
+}
+.main_body{
+	background-color:#808080; 
+	width: 90%;
+	margin: 50px auto 30px 100px; /* TOP RIGHT BOTTOM LEFT */
+	border: 5px solid;
+	height: 80%;
+	padding: 5px;
+	font-size: 20px;
+	color: #000000;
+	text-align: center;
+}
+
+.sub_body{
+	width: 90%;
+	margin: 55px auto 30px auto; /* TOP RIGHT BOTTOM LEFT */
+	border: 0px solid #000000;
+	height: 80%;
+	padding: 20px;
+	background-color: #c0c0c0;
+	font-size: 15px;
+	text-align: left;
+}
+.menu_bar{
+
+}
+.small-text{font-size: 10px; text-align: center;}
+.copyright{font-size: 20px; text-align: center;}
+
+.surveyLink{
+	font-size:20px; padding-top: 10px; color:red;"
+}
+
+.error{
+	color: red;
+}
+.greetingMessage{
+color:#400080;
+}
+#errorMessage{
+	font-weight: 600;
+	color: red; 
+	font-style:italic;
+}
+
+nav, footer {
+	clear: both;
+	color: #ffffff;
+	background-color: #008000;
+	height: 30px;
+	width: 1240px;
+	border-radius: 10px;
+}
+
+nav ul {
+	margin: 0px;
+	padding: 5px 0px 5px 30px;
+}
+
+nav li {
+	display: inline;
+	margin-right: 40px;
+}
+
+nav li a {
+	color: #ffffff;
+}
+
+nav li a:hover, nav li a.current {
+	color: #000000;
+}
+
+
+

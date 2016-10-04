@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- struts.xml is the XML file where all the action and tiles is mentioned. -->
+
+<struts>
+<constant name="struts.devMode" value="true" />
+	<package name="default" extends="struts-default">
+
+	
+		<!-- Action to load the student survey form. -->
+		<action name="studentSurveyForm" class="com.gmu.actions.StudentSurveyAction"
+			method="execute">
+			<result name="success">jsp/studentSurvey.jsp</result>
+		</action>
+	   <!-- Action to save the student survey form details -->
+       <action name="saveStudentInfo" class="com.gmu.actions.StudentSurveyAction"
+			method="saveSurveyDetails">
+			<result name="simpleAcknowledgement">jsp/simpleAcknowledgement.jsp
+			</result>
+			<result name="winnerAcknowledgement">jsp/winnerAcknowledgement.jsp
+			</result>
+		</action>
+	   <!-- Action to retrieve student details -->
+		<action name="retrieveStudentDetails" class="com.gmu.actions.StudentSurveyAction"
+			method="retrieveStudentDetails">
+			<result name="studentExist">jsp/studentExist.jsp</result>
+			<result name="noSuchStudent">jsp/noSuchStudent.jsp</result>
+		</action>
+
+		
+	</package>
+</struts>
